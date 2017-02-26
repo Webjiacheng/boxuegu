@@ -7,11 +7,26 @@ requirejs.config({
         //引入第三方库
         jquery:'lib/jquery/jquery',
         bootstrap:'lib/bootstrap/js/bootstrap',
+        echarts:'lib/echarts/echarts.min',
         //引入自己的js地址
+        Index:'js/common/index',
         userList:'js/user/list',
         userProfile:'js/user/profile',
         common:'js/common/common',
-        NProgress:'lib/nprogress/nprogress'
+        NProgress:'lib/nprogress/nprogress',
+        TeacherAdd:'js/teacher/add',
+        TeacherList:'js/teacher/list',
+        HomeLogin:'js/home/login',
+        HomeRepass:'js/home/repass',
+        HomeSettings:'js/home/settings',
+        CourseAdd:'js/course/add',
+        CourseAdd_step1:'js/course/add_step1',
+        CourseAdd_step2:'js/course/add_step2',
+        CourseAdd_step3:'js/course/add_step3',
+        CourseCategory:'js/course/category',
+        CourseCategory_add:'js/course/category_add',
+        CourseList:'js/course/list',
+        CourseTopic:'js/course/topic',
     },
     shim:{
         bootstrap:{
@@ -20,13 +35,58 @@ requirejs.config({
     }
 });
 //所有页面都需要这两个文件，先加载
-require(['jquery','bootstrap']);
+require(['jquery','bootstrap','echarts']);
 (function (window) {
     require(['common']);
     var pathname=window.location.pathname;
     switch(pathname){
+        case '/index.html':
+            require(['Index']);
+            break;
         case '/html/user/list.html':
             require(['userList']);
+            break;
+        case '/html/user/profile.html':
+            require(['userProfile']);
+            break;
+        case '/html/teacher/add.js':
+            require(['TeacherAdd']);
+            break;
+        case '/html/teacher/list.html':
+            require(['TeacherList']);
+            break;
+        case '/html/home/login.html':
+            require(['HomeLogin']);
+            break;
+        case '/html/home/repass.html':
+            require(['HomeRepass']);
+            break;
+        case '/html/home/settings.html':
+            require(['HomeSettings']);
+            break;
+        case '/html/course/add.html':
+            require(['CourseAdd']);
+            break;
+        case '/html/course/add_step1.html':
+            require(['CourseAdd_step1']);
+            break;
+        case '/html/course/add_step2.html':
+            require(['CourseAdd_step2']);
+            break;
+        case '/html/course/add_step3.html':
+            require(['CourseAdd_step3']);
+            break;
+        case '/html/course/category.html':
+            require(['CourseCategory']);
+            break;
+        case '/html/course/category_add.html':
+            require(['CourseCategory_add']);
+            break;
+        case '/html/course/list.html':
+            require(['CourseList']);
+            break;
+        case '/html/course/topic.html':
+            require(['CourseTopic']);
             break;
         default:
             console.log('失败');
