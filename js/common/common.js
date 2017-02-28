@@ -1,13 +1,16 @@
 /**
  * Created by hujiacheng on 2017/2/25.
  */
-define(['jquery','jqueryCookie'],function ($,undefined) {
+define(['jquery','jqueryCookie','NProgress'],function ($,undefined,NProgress) {
     $('.navs ul').prev('a').on('click', function () {
         $(this).next().slideToggle();
     });
 
+    var pathname=window.location.pathname;
+    console.log(pathname);
+    $('a').removeClass('active').filter('[href="'+pathname+'"]').addClass('active').parents().show();
+
     $('#return').on('click',function () {
-        console.log(111);
         $.ajax({
             url:'/v6/logout',
             type:'post',
@@ -34,5 +37,7 @@ define(['jquery','jqueryCookie'],function ($,undefined) {
     var tc_avatar=userInfo.tc_avatar;
     console.log(tc_name+'----'+tc_avatar);
     $('.aside .profile h4').html(tc_name?tc_name:'小木瓜');
-    $('.aside .profile img').attr('src',tc_avatar?tc_avatar:'/img/default.jpg')
+    $('.aside .profile img').attr('src',tc_avatar?tc_avatar:'/img/default.jpg');
+
+    NProgress.done();
 })

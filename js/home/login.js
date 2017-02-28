@@ -2,6 +2,14 @@
  * Created by hujiacheng on 2017/2/26.
  */
 define(['jquery','jqueryCookie'],function ($,undefined) {
+    var userInfo=null;
+    try{
+        userInfo=JSON.parse($.cookie('userInfo'));
+    }catch(e){
+        userInfo={};
+    }
+    $('.login .avatar img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.jpg');
+
     $('#formData').on('submit',function () {
         $.ajax({
             url:'/v6/login',
@@ -18,7 +26,7 @@ define(['jquery','jqueryCookie'],function ($,undefined) {
                     location.href='/index.html';
                 }
             },
-            error:function (data) {
+            error:function (data){
                 console.log(data);
             }
         })

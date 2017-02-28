@@ -35,8 +35,11 @@ requirejs.config({
         }
     }
 });
+require(['NProgress'],function (NProgress) {
+    NProgress.start();
+});
 //所有页面都需要这两个文件，先加载
-require(['jquery','bootstrap','echarts']);
+require(['jquery','bootstrap','echarts','common']);
 (function (window) {
     var pathname=window.location.pathname;
     require(['jquery','jqueryCookie'],function ($,undefined) {
@@ -45,7 +48,6 @@ require(['jquery','bootstrap','echarts']);
         }else if(!(pathname=='/html/home/login.html') && !($.cookie('PHPSESSID'))){
             location.href='/html/home/login.html';
         }
-        require(['common']);
         switch(pathname){
             case '/index.html':
                 require(['Index']);
