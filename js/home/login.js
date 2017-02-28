@@ -8,6 +8,7 @@ define(['jquery','jqueryCookie'],function ($,undefined) {
     }catch(e){
         userInfo={};
     }
+
     $('.login .avatar img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.jpg');
 
     $('#formData').on('submit',function () {

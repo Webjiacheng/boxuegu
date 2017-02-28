@@ -1,9 +1,18 @@
 /**
  * Created by hujiacheng on 2017/2/25.
  */
-define(['jquery','jqueryCookie','NProgress'],function ($,undefined,NProgress) {
+define(['jquery','jqueryCookie','NProgress'],function ($,undefined,NProgress)
+{
     $('.navs ul').prev('a').on('click', function () {
         $(this).next().slideToggle();
+    });
+
+    $(document).ajaxStart(function () {
+        //console.log('加载开始');
+        $('.overlay').show();
+    }).ajaxStop(function () {
+        //console.log('加载完毕');
+        $('.overlay').hide();
     });
 
     var pathname=window.location.pathname;
