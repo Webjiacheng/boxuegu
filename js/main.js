@@ -18,6 +18,7 @@ requirejs.config({
         common:'js/common/common',
         TeacherAdd:'js/teacher/add',
         TeacherList:'js/teacher/list',
+        TeacherEdit:'js/teacher/edit',
         HomeLogin:'js/home/login',
         HomeRepass:'js/home/repass',
         HomeSettings:'js/home/settings',
