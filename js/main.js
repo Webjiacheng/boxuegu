@@ -11,11 +11,16 @@ requirejs.config({
         jqueryCookie:'lib/jquery-cookie/jquery.cookie',
         NProgress:'lib/nprogress/nprogress',
         ArtTemplate:'lib/artTemplate/template',
+        Datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
+        DatepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        //ArtTemplate:'lib/artTemplate/template',
         //引入自己的js地址
         Index:'js/common/index',
         userList:'js/user/list',
         userProfile:'js/user/profile',
         common:'js/common/common',
+        util:'js/common/util',
+        Edit:'js/course/edit',
         TeacherAdd:'js/teacher/add',
         TeacherList:'js/teacher/list',
         TeacherEdit:'js/teacher/edit',
@@ -34,6 +39,9 @@ requirejs.config({
     shim:{
         bootstrap:{
             deps:['jquery']
+        },
+        DatepickerLanguage:{
+            deps:['jquery','Datepicker']
         }
     }
 });
@@ -77,6 +85,9 @@ require(['jquery','bootstrap','echarts','common']);
                 break;
             case '/html/course/add.html':
                 require(['CourseAdd']);
+                break;
+            case '/html/teacher/edit.html':
+                require(['Edit']);
                 break;
             case '/html/course/add_step1.html':
                 require(['CourseAdd_step1']);

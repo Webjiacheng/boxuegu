@@ -82,11 +82,11 @@
             <td>{{ value.tc_name }}</td>
             <td>{{ value.tc_roster }}</td>
             <td>{{ value.tc_birthday }}</td>
-            <td>{{ value.tc_gender?'女':'男' }}</td>
+            <td>{{ value.tc_gender == 1?'女':'男' }}</td>
             <td>{{ value.tc_cellphone }}</td>
             <td data-id="{{ value.tc_id }}" tc_status="{{ value.tc_status }}" >
             <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs tc_view">查 看</a>
-            <a href="edit.html" class="btn btn-info btn-xs">编 辑</a>
+            <a href="edit.html?tc_id={{ value.tc_id }}" class="btn btn-info btn-xs">编 辑</a>
             <a href="javascript:;" class="btn btn-warning btn-xs tc_handle">{{ value.tc_status==0?'开 启':'注 销' }}</a>
             </td>
         </tr>

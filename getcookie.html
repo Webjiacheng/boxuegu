@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+    <script src='./lib/jquery/jquery.js'></script>
+    <script src='./lib/bootstrap/js/bootstrap.js'></script>
+    <script src='./lib/bootstrap-datepicker/js/bootstrap-datepicker.js'></script>
+    <script src="./lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 </head>
 <body>
+<input type="text" value="2012-05-15" id="datetimepicker">
 <script>
-    document.cookie='name1=jaicheng1';
-    document.cookie='name2=jaicheng2';
-    document.cookie='name3=jaicheng3';
-    function getCookie(key) {
-        var cookiesArr=document.cookie.split(';');
-        console.log(cookiesArr);
-    }
-    getCookie();
+    $('#datetimepicker').datepicker({
+        language:'zh-CN',
+        format:'yyyy-mm-dd'
+    });
 </script>
 </body>
 </html>

@@ -40,14 +40,24 @@ define(['jquery','ArtTemplate'],function ($,ArtTemplate) {
         },function (data) {
             if(data.code==200){
                 console.log(data);
-                //console.log(data.result.tc_status);
+                console.log(data.result.tc_status);
                 if(attr_a.parent().attr('tc_status')==1){
                     attr_a.parent().attr('tc_status','0');
+
                     attr_a.html('开 启');
                 }else {
                     attr_a.parent().attr('tc_status','1');
                     attr_a.html('注 销');
                 }
+
+                // if(data.result.tc_status==1){
+                //     attr_a.parent().attr('tc_status','0');
+                //
+                //     attr_a.html('注 销');
+                // }else {
+                //     attr_a.parent().attr('tc_status','1');
+                //     attr_a.html('开 启');
+                // }
             }
         });
     })
