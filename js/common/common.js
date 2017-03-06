@@ -16,8 +16,19 @@ define(['jquery','jqueryCookie','NProgress'],function ($,undefined,NProgress)
     });
 
     var pathname=window.location.pathname;
+    //映射路径
+    var pathObj={
+        "/html/course/category_add.html":"/html/course/category.html",
+        "/html/course/category.html":"/html/course/category.html",
+        "/html/course/add_step1.html":"/html/course/list.html",
+        "/html/course/add_step2.html":"/html/course/list.html",
+        "/html/course/add_step3.html":"/html/course/list.html",
+        "/html/course/list.html":"/html/course/list.html",
+        "/html/course/add.html":"/html/course/add.html"
+    }
+
     console.log(pathname);
-    $('a').removeClass('active').filter('[href="'+pathname+'"]').addClass('active').parents().show();
+    $('a').removeClass('active').filter('[href="'+pathObj[pathname]+'"]').addClass('active').parents().show();
 
     $('#return').on('click',function () {
         $.ajax({
@@ -42,11 +53,11 @@ define(['jquery','jqueryCookie','NProgress'],function ($,undefined,NProgress)
     }catch(e){
         userInfo={};
     }
-    var tc_name=userInfo.tc_name;
-    var tc_avatar=userInfo.tc_avatar;
-    console.log(tc_name+'----'+tc_avatar);
-    $('.aside .profile h4').html(tc_name?tc_name:'小木瓜');
-    $('.aside .profile img').attr('src',tc_avatar?tc_avatar:'/img/default.jpg');
+    //var tc_name=userInfo.tc_name;
+    //var tc_avatar=userInfo.tc_avatar;
+    console.log(userInfo.tc_name+'----'+userInfo.tc_avatar);
+    $('.aside .profile h4').html(userInfo.tc_name?userInfo.tc_name:'小木瓜');
+    $('.aside .img-circle img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.jpg');
 
     NProgress.done();
 })

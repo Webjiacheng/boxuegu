@@ -13,6 +13,9 @@ requirejs.config({
         ArtTemplate:'lib/artTemplate/template',
         Datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
         DatepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        Uploadify:'/lib/uploadify/jquery.uploadify',
+        ckeditor:'/lib/ckeditor/ckeditor',
+        region:'/lib/region/jquery.region',
         //ArtTemplate:'lib/artTemplate/template',
         //引入自己的js地址
         Index:'js/common/index',
@@ -42,6 +45,9 @@ requirejs.config({
         },
         DatepickerLanguage:{
             deps:['jquery','Datepicker']
+        },
+        Uploadify:{
+            deps:['jquery']
         }
     }
 });
